@@ -8,10 +8,15 @@
 
 ## Requirements
 
-소득세 챗봇 구성을 위해서는 다음과 같은 사항이 필요하다.
+소득세 챗봇 구성을 위해서는 다음과 같은 사항이 필요하다. (환경변수로 설정)
  - OPENAI_API_KEY
  - PINECONE_API_KEY
- - 소득세 학습을 위한 Markup된 문서: Repository에 포함되어 있음.
+ - LANGSMITH_TRACING
+ - LANGSMITH_ENDPOINT
+ - LANGSMITH_API_KEY
+ - LANGSMITH_PROJECT
+
+소득세 학습을 위한 Markup된 문서: Repository에 포함되어 있음.
  
 
 ## Packages
@@ -44,4 +49,12 @@ Application은 다음과 같이 구동한다.
 
     $ source .venv/bin/activate
     $(.venv) streamlit run chat.py
+
+## Evaluation
+Income tax chatbot의 사용자 질문에 대한 답변의 정확성은 다음과 같은 방법으로 평가한다.
+	
+	$ source .venv/bin/activate
+	$(.venv) python evaluator.py
+
+평가 결과는 langsmith의 Experiments에 정리된다. 
 
